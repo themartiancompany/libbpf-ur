@@ -8,7 +8,9 @@ depends=('libelf' 'linux-api-headers')
 url='https://github.com/libbpf/libbpf'
 license=('custom')
 makedepends=('rsync')
-arch=('x86_64')
+arch=(
+  'x86_64'
+  'arm')
 source=("git+https://github.com/libbpf/libbpf#tag=v${pkgver}")
 sha256sums=('SKIP')
 
