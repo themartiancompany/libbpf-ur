@@ -4,12 +4,14 @@ pkgbase = libbpf
 	pkgrel = 1
 	url = https://github.com/libbpf/libbpf
 	arch = x86_64
+	arch = arm
 	license = custom
 	makedepends = rsync
 	depends = libelf
 	depends = linux-api-headers
 	source = git+https://github.com/libbpf/libbpf#tag=v0.0.7
+	source = check-reallocarray.sh
 	sha256sums = SKIP
+	sha256sums = ef627f22f16df9fc3694a5155fff4ba7820529c8661c8ccac0b3b62dd4d2046c
 
 pkgname = libbpf
-
