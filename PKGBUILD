@@ -8,10 +8,17 @@ pkgname=libbpf
 pkgver=0.0.7
 pkgrel=1
 pkgdesc='BPF library'
-depends=('libelf' 'linux-api-headers')
+depends=(
+  'libelf'
+  'linux-api-headers'
+)
 url='https://github.com/libbpf/libbpf'
-license=('custom')
-makedepends=('rsync')
+license=(
+  'custom'
+)
+makedepends=(
+  'rsync'
+)
 arch=(
   'x86_64'
   'arm'
@@ -31,16 +38,11 @@ prepare () {
     "${srcdir}/${pkgname}/scripts"
   cd \
     "${srcdir}/${pkgname}"
-  ls
-  ls scripts
-  bash \
-    scripts/check-reallocarray.sh
 }
 
 build() {
   cd \
     "${srcdir}/${pkgname}/src"
-  ls
   cat \
     Makefile
   make
@@ -67,9 +69,10 @@ package() {
     "${srcdir}/${pkgname}/LICENSE.BSD-2-Clause"
   pushd \
     "${pkgdir}/usr"
-  mv \
-    lib64 \
-    lib
+  [[ -e lib64 ]] && \
+    mv \
+      lib64 \
+      lib
   popd
 }
 
